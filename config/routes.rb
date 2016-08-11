@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/sign_in'
+
+  get 'sessions/sign_out'
+
+  get 'notes/create'
+
+  get 'notes/update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
