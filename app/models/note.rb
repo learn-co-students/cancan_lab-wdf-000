@@ -13,7 +13,6 @@ class Note < ActiveRecord::Base
     self.readers = csv_list_of_names.split(/\,\s?/).collect do |name|
        User.find_or_create_by(name: name)
     end
-    self.save
   end
 
 end

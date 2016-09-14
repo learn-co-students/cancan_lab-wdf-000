@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :require_login
+  load_and_authorize_resource
 
   def new
     @note = Note.new
@@ -26,15 +27,15 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @note.update(content: note_params[:content])
     @note.visible_to=note_params[:visible_to]
-    @note.readers << @note.user
+    @note.readers << @note.user  unless @note.readers.include?(@note.user) 
     @note.save
     redirect_to '/'
   end
 
   def index
+    @notes = Note.all
+    @note = Note.new
   end
-
-
 
   private
   def require_login

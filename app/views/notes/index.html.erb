@@ -1,0 +1,12 @@
+<% @notes.each do |note| %>
+  <% if can? :read, note%>
+    Note for you to view: <%= link_to note.id, note_path(note) %><br>
+  <%end%>
+<% end %>
+
+
+<p>
+<% if can? :create, @note%>
+      <%= link_to "New note", new_note_path %>
+<% end %>
+</p>
