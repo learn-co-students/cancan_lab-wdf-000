@@ -34,12 +34,12 @@ class Ability
     # can :update, Note do |note|
     #     note.user == user
     # end
+    # user ||= User.new
+    return unless user
     can :read, Note do |note|
         note.readers.include?(user)  
     end
     # using manage to apply every action
-    can :manage, Note do |note|
-        note.user == user
-    end
+    can :manage, Note, user_id: user.id
   end
 end
