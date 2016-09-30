@@ -28,13 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    can :read, Note do |note|
-        note.user == user
-    end
+    # can :read, Note do |note|
+    #     note.user == user
+    # end
+    # can :update, Note do |note|
+    #     note.user == user
+    # end
     can :read, Note do |note|
         note.readers.include?(user)  
     end
-    can :update, Note do |note|
+    # using manage to apply every action
+    can :manage, Note do |note|
         note.user == user
     end
   end
