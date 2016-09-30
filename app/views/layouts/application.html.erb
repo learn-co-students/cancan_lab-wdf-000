@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<% if current_user %>
+  <%= link_to("Sign out", logout_path, method: :post) %>
+<% else %>
+  <%= link_to("Home", root_path) %>
+  <%= link_to("Sign in", login_path) %>
+<% end %>
+
 <%= yield %>
 
 </body>
