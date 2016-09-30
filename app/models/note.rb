@@ -13,7 +13,8 @@ class Note < ActiveRecord::Base
   end
 
   def visible_to
-    self.readers.map(&:name).join(', ')
+    # self.readers.map(&:name).sort_by(&:downcase).join(', ')
+    self.readers.map(&:name).sort_by(&:downcase).join(', ')
   end
 
 end

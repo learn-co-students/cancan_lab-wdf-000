@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  root 'notes#index'
+
   resources :notes
 
-  resources :sessions, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new'
+  resources :sessions, only: [:create, :destroy]
 
   get 'users/create'
 
