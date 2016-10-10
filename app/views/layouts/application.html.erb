@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<%= link_to("Home", "/") %>
+<%= link_to("Sign in", login_path) %>
+<%= link_to("Sign out", logout_path, :method => "post") %>
+
 <%= yield %>
 
 </body>
