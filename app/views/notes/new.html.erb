@@ -1,0 +1,7 @@
+<%= form_for(Note.new) do |f| %>
+Content  <%= f.text_area :content %>
+Viewers <%= f.text_area :readers %>
+<%=f.submit "Create new Note" %>
+
+
+<%end%>

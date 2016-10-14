@@ -1,0 +1,6 @@
+<%= form_for(@note) do |f| %>
+<%= f.label :content %>
+<%= f.text_field :content %>
+<%= f.text_area :readers %>
+<%= f.submit "Edit Note" %>
+<%end%>
