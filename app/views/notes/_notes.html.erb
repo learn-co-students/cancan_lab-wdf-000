@@ -1,0 +1,7 @@
+<div style="width: 80%; margin: 0 auto; border: 2px solid black; padding: 5px;">
+  <% notes.each do |note| %>
+    <p>Content: <%= note.content %></p>
+    <p>Owner: <%= note.user.name %></p>
+    <p>Readers: <%= note.visible_to %></p>
+  <% end %>
+</div>

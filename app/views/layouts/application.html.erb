@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<%= link_to("Home", root_path) %>
+<% if current_user %>
+  <%= link_to("Create Note", new_note_path, method: :get) %>
+  <%= link_to("Sign out", logout_path, method: :delete) %>
+<% else %>
+  <%= link_to("Sign in", login_path) %>
+<% end %>
+
 <%= yield %>
 
 </body>
