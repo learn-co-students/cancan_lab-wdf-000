@@ -4,13 +4,12 @@ class Note < ActiveRecord::Base
   has_many :readers, through: :viewers, source: :user
   accepts_nested_attributes_for :readers
 
-
+    
     def visible_to=(viewers)
-      viewer = viewers.split(", ")
-      viewer.map do |person|
-        reader = User.find_by(name: person)
-          self.readers << reader
+      @reader = viewers.split(", ").map do |person|
+        User.find_by(name: person)
       end
+      self.readers = @reader
     end
 
 

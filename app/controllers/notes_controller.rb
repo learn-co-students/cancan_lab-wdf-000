@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
- load_and_authorize_resource
+ # load_and_authorize_resource
 
 
   def create
@@ -14,19 +14,12 @@ class NotesController < ApplicationController
     end
   end
 
-  def edit
-    @note = Note.find_by(id: params[:id])
-  end
-
   def update
-    binding.pry
-    note = Note.find_by(id: params[:id])
-      if note.update(note_params)
-        redirect_to root_path
-      else
-        redirect_to root_path
-      end
-  end
+     @note = Note.find_by(id: params[:id])
+     @note.update(note_params)
+     @note.readers << current_user
+     redirect_to root_path
+ end
 
 
 
