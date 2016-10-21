@@ -12,15 +12,15 @@ We're going to learn how to integrate [CanCanCan] into a Rails application. Our 
 
 ## Instructions
 
-1. Create a `User` model and migration. `User`s have `name`s and that's it.
+<!-- 1. Create a `User` model and migration. `User`s have `name`s and that's it. -->
 
 We could give our users passwords quite easily with `has_secure_password`. However that would make it a lot more annoying to develop this app! For now, we'll just have usernames, and we'll let anyone sign in as someone else only using their name. This will make it easy to switch between accounts and test our authorization scheme.
 
-2. Create a `Note` model. `Note`s have `content`, and a `user`, their creator.
+<!-- 2. Create a `Note` model. `Note`s have `content`, and a `user`, their creator. -->
 
-3. Create a `Viewer` model. `viewers` is a join between `notes` and `users`. An entry in the `Viewer`s table means that `user` can view that `note`.
+<!-- 3. Create a `Viewer` model. `viewers` is a join between `notes` and `users`. An entry in the `Viewer`s table means that `user` can view that `note`. -->
 
-Hint: There are a few ways to set up the relationship between `Note`s and `User`s. Here's what the tests expect:
+<!-- Hint: There are a few ways to set up the relationship between `Note`s and `User`s. Here's what the tests expect:
 
     # user.rb
     has_many :viewers
@@ -28,7 +28,7 @@ Hint: There are a few ways to set up the relationship between `Note`s and `User`
 
     # note.rb
     has_many :viewers
-    has_many :readers, through: :viewers, source: :user
+    has_many :readers, through: :viewers, source: :user -->
 
 When we create a new note, we'll want a form that takes in a comma-separated list of usernames which represent who that note is visible to.  We'll use utility methods on the note model which should know how to create the relationship between a note and its viewers.  These readers and writers will be called `visible_to` and `visible_to=`.  You should be able to use the same principles of mass assignment and "accepts_nested_attributes" to accomplish this.  Use the tests as your guide.
 
